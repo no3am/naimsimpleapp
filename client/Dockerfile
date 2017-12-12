@@ -4,13 +4,12 @@ FROM alpine:3.1
 RUN apk add --update python py-pip
 
 # Install app dependencies
-RUN pip install -U web.py
-RUN pip install -U pathlib
+RUN pip install -U urllib.request
+RUN pip install -U json
+RUN pip install -U sys
 
 # Bundle app source
-COPY server.py /src/server.py
-COPY user_data.xml /src/user_data.xml
+COPY client.py /src/client.py
 
 
-EXPOSE  8080
-CMD ["python", "/src/server.py"]
+CMD ["python", "/src/client.py"]
