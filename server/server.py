@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 import web
 import xml.etree.ElementTree as ET
+import json
 
 from pathlib import Path
 
-xmlfile = Path('./src/user_data.xml')
+xmlfile = Path('./user_data.xml')
 tree = ET.parse(str(xmlfile))
 root = tree.getroot()
 
@@ -30,7 +31,8 @@ class get_user:
     def GET(self, user):
         for child in root:
             if child.attrib['id'] == user:
-                return str(child.attrib)
+                return json.dumps(child.attrib)
+                # return str(child.attrib)
 
 
 if __name__ == "__main__":
