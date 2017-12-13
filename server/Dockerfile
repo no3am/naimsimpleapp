@@ -1,7 +1,8 @@
-FROM alpine:3.1
+FROM alpine:3.5
 
 # Update
 RUN apk add --update python py-pip
+RUN pip install --upgrade pip
 
 # Install app dependencies
 RUN pip install -U web.py

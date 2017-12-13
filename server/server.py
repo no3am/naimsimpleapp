@@ -5,7 +5,7 @@ import json
 
 from pathlib import Path
 
-xmlfile = Path('./user_data.xml')
+xmlfile = Path('./src/user_data.xml')
 tree = ET.parse(str(xmlfile))
 root = tree.getroot()
 
@@ -32,7 +32,6 @@ class get_user:
         for child in root:
             if child.attrib['id'] == user:
                 return json.dumps(child.attrib)
-                # return str(child.attrib)
 
 
 if __name__ == "__main__":
